@@ -1,0 +1,26 @@
+{
+  "name": "plaza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mdi/svg": "^5.8.55",
+    "aliexpress-product-scraper": "^1.0.5",
+    "aliexpress-product-scraper-forker": "^1.0.15",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ebay-node-api": "^2.8.7",
+    "ebay-rss": "^1.0.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2",
+    "puppeteer": "^2.1.1"
+  }
+}
