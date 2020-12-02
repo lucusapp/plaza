@@ -1,0 +1,3 @@
+[submodule "mercado"]
+	path = mercado
+	url = https://github.com/lucusapp/mercado.git
