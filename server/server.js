@@ -19,6 +19,7 @@ app.use(bodyParser.json())
 
 // importamos y usamos rutas
 app.use("/",require('./rutas/aliscraper'));
+// app.use("/",require('./rutas/ebay/ebayscraper'));
 
 
 mongoose.connect('mongodb+srv://lucusapp:romimu1111@cluster0-49zbz.mongodb.net/productos?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true  }, (err,res)=>{

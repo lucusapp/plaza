@@ -16,7 +16,12 @@ app.post("/", async (req, res) => {
    
   await product
    .then(async (res) => {
-     console.log('The JSON: ', res);
+     
+     console.log('The JSON: ',
+    // res
+     
+     );
+     
      
      // UTILIZANDO EL MODELO DE DATOS DE MONGOOSE
      // producScrape = await  new Producto ({
@@ -33,7 +38,7 @@ app.post("/", async (req, res) => {
          "StoreCategory":'',
          "Title":res.title,
          "ConditionID":'1000',
-         "Marca":'',
+         "Marca":res.Marca,
          "MPN":'No aplicable',
          "Product":'No aplicable',
          "EAN":'',
@@ -41,32 +46,34 @@ app.post("/", async (req, res) => {
          "Description":res.description,
          "Format":'Fixed Price',
          "Duration":'GTC',
-         "StartPrice":'',
+         "StartPrice":[ res.originalPrice.max  ,  res.originalPrice.min],
          "Quantity":'',
          "Location": '15179',
          "ShippingProfileName":'Fija:Correos: carta(Gratis),3 días laborables',
          "ReturnProfileName": 'Devoluciones aceptadas,Comprador,14 días#0',
          "PaymentProfileName":'PayPal:Pago inmediato',
          "Relationship":'',
-         "RelationshipDetails":''
+         "RelationshipDetails":'',
+         "Variantes": res.variants.options[0].values,
+         "Precios":[]
+     
+         
         }
         
-        console.log (producScrape)
-        const variantes = res.variants.options.values()
-        for (const variante of variantes ){
-            console.log(variante);
-          
-          }
+        
         const precios = res.variants.prices.values()
+
+        
         for (const precio of precios ){
-            console.log(precio);
-          
-          }
-          
-        })
-        .catch(e=>{
-          console.log(e);
-        });
+          console.log(precio)
+          producScrape.Precios.push(precio)          
+        }
+        
+      })
+      .catch(e=>{
+        console.log(e);
+      });
+      console.log (producScrape)
      
       })
 
